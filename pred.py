@@ -77,7 +77,9 @@ def get_pred(data, args, fout):
         base_url=URL,
         api_key=API_KEY
     )
-    for item in tqdm(data):
+    for idx, item in enumerate(tqdm(data)):
+        print(f"Processing item {idx + 1}", flush=True)
+        
         context = item['context']
         if args.rag > 0:
             template = template_rag
